@@ -35,6 +35,7 @@ import torch
 # software dev modules
 from tqdm import tqdm
 import warnings
+import openpyxl
 import pickle
 import sys
 import os
