@@ -71,7 +71,7 @@ class batch_processing:
            
     def cache_metadata(self, metadata_path):
         """Store any metadata"""
-        self.metadata = pd.read_csv(metadata_path, index_col=False).replace(np.NaN, 'nan')
+        self.metadata = pd.read_csv(metadata_path, index_col=False).replace(np.nan, 'nan')
         print('')
         print('     Metadata saved!     ')
         print('')
@@ -133,7 +133,8 @@ class batch_processing:
                     dtt  = {prefix + '_' + st[0].split(':')[0]: st[1].split('\n')[0]}
                 dt.update(dtt)
                 c = c+1
-            df = df.append(dt, ignore_index=True)[df.keys()]
+            dt = pd.DataFrame([dt])
+            df = pd.concat([df, dt], ignore_index=True)[df.keys()]
             f.close()
         message = """
 
@@ -223,7 +224,8 @@ class batch_processing:
                         'perseverance_error':     st[10],
                         'not_perseverance_error': st[11].split('\n')[0],
                     }
-                    df = df.append(dt, ignore_index=True)[dt.keys()]
+                    dt = pd.DataFrame([dt])
+                    df = pd.concat([df, dt], ignore_index=True)[dt.keys()]
                 f.close()
         message = """
 
@@ -259,7 +261,8 @@ class batch_processing:
                         'status':                 st[3],
                         'reaction_time_ms':       st[4].split('\n')[0],
                     }
-                    df = df.append(dt, ignore_index=True)[dt.keys()]
+                    dt = pd.DataFrame([dt])
+                    df = pd.concat([df, dt], ignore_index=True)[dt.keys()]
                 f.close()
         message = """
 
@@ -300,7 +303,8 @@ class batch_processing:
                             'stimuli_n_1':              st[10],
                             'stimuli_n_2':              st[11].split('\n')[0],
                         }
-                        df = df.append(dt, ignore_index=True)[dt.keys()]
+                        dt = pd.DataFrame([dt])
+                        df = pd.concat([df, dt], ignore_index=True)[dt.keys()]
                     f.close()
             message = """
 
@@ -333,7 +337,8 @@ class batch_processing:
                         'n_items':                  st[1],
                         'status':                   st[2].split('\n')[0],
                     }
-                    df = df.append(dt, ignore_index=True)[dt.keys()]
+                    dt = pd.DataFrame([dt])
+                    df = pd.concat([df, dt], ignore_index=True)[dt.keys()]
                 f.close()
         message = """
 
@@ -371,7 +376,8 @@ class batch_processing:
                         'reaction_time_ms':         st[5],
                         'status':                   st[6].split('\n')[0],
                     }
-                    df = df.append(dt, ignore_index=True)[dt.keys()]
+                    dt = pd.DataFrame([dt])
+                    df = pd.concat([df, dt], ignore_index=True)[dt.keys()]
                 f.close()
         message = """
 

@@ -85,12 +85,13 @@ class encode_data:
         # q: How many hours do you spend playing computer games (per week)
         # - {min=0,max=100,left=low,right=high,start=0}
 
-        df = bp.individual_data[['participant', 'participant_file', 'user_agent', 'Welcome_Screen_T', 'participant_code_a', 'feedback_T', 'age_T', 'age_a', 'gender_T', 'gender_a',
-                                'handedness_T', 'handedness_a', 'education_T', 'education_a', 'income_T', 'income_a', 'income_s', 'computer_hours_T', 
-                                'computer_hours_a', 'computer_hours_s']]
+        df = bp.individual_data[['participant', 'participant_file', 'user_agent', 'Welcome_Screen_T', 
+                                 'participant_code_a', 'feedback_T', 'age_T', 'age_a', 'gender_T', 'gender_a',
+                                'handedness_T', 'handedness_a', 'education_T', 'education_a', 'income_T', 
+                                'income_a', 'income_s', 'computer_hours_T', 'computer_hours_a', 'computer_hours_s']]
 
         # ---- extract clean data ----x
-        df             = df[df['age_a'].replace(np.NaN, 'na').str.isnumeric()]          # remove nonsensical data
+        df             = df[df['age_a'].replace(np.nan, 'na').str.isnumeric()]          # remove nonsensical data
         df.iloc[:, 3:] = df.iloc[:, 3:].astype('float')                                 # convert to float
         df             = df[df['gender_a'].notnull()]                                   # Nan data
 

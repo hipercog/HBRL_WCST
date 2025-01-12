@@ -22,13 +22,13 @@ from sklearn.compose            import ColumnTransformer
 from sklearn.impute             import SimpleImputer
 from sklearn.svm                import SVR
 from statsmodels.formula.api    import ols
-from mrmr                       import mrmr_regression
+from mrmr.pandas                import mrmr_regression
 from scipy                      import stats
 import statsmodels.api          as sm
 import pandas                   as pd
 import numpy                    as np
-import pystan
 import torch
+import pystan
 
 
 
@@ -36,7 +36,7 @@ import torch
 from tqdm import tqdm
 import warnings
 import openpyxl
-import pickle
+import dill as pickle
 import sys
 import os
 import re
@@ -47,26 +47,7 @@ from encode_processed_data import encode_data
 from summary_plots_and_figures import summary_plots_and_figures
 
 # user settings
-plt.style.use('seaborn-darkgrid')
+plt.style.use('seaborn-v0_8-darkgrid')
 warnings.filterwarnings('ignore')
 pd.options.display.max_rows = 4000
 # ========================================= Project Dependencies ========================================= #
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
