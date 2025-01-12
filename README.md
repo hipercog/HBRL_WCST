@@ -13,8 +13,8 @@
 >> Clean dataset
 
 2. `Outlier_removal_dimentionily_reduction.ipynb`: remove outliers and stores final dataframes:
-    - `../data objects/final_dataframes/wcst_raw_data.csv`
-    - `../data objects/final_dataframes/covariates.csv`
+    - `../data_objects/final_dataframes/wcst_raw_data.csv`
+    - `../data_objects/final_dataframes/covariates.csv`
 
 
 3. `split subjects into performance groups`: groups the data in n contiguous groups.
